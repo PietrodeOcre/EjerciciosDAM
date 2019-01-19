@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Tema6.Ejercicio3Clone;
+package tema6.Ejercicio3clone;
 
 /**
  *

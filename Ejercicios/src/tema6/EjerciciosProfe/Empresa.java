@@ -1,4 +1,4 @@
-package Ejercicio3Clone;
+package tema6.EjerciciosProfe;
 
 public class Empresa implements Cloneable{
 	private String nombre;

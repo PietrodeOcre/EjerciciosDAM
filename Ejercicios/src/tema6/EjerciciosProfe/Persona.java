@@ -1,4 +1,4 @@
-package Ejercicio3Clone;
+package tema6.EjerciciosProfe;
 
 public class Persona implements Cloneable{
 
@@ -62,7 +62,7 @@ public class Persona implements Cloneable{
 		Persona persona = new Persona();
 		
 		persona.nombre = "Maria";
-		persona.apellidos ="garcía";
+		persona.apellidos ="garcï¿½a";
 		persona.dni = "45345454D";
 		persona.edad = 30;
 		persona.sexo = 'M';
