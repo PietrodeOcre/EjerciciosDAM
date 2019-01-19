@@ -33,7 +33,7 @@ public class Ejercicio1 {
         //Creamos una variable para pedir el número de la posición del array
         int num;
         do{
-            System.out.println("Escribe un número: ");
+            //System.out.println("Escribe un número: ");
             //Pedimos la posición del array
             num = Integer.parseInt(sc.nextLine());
             //Si está en el rango del array muestra la letra
