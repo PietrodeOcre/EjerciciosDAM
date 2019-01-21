@@ -18,20 +18,18 @@ import java.util.Scanner;
 public class Ejercicio2 {
     
     //Para el tamaño del array
-    private static int tamanio = 0;
-    
-    //Creamos los Arrays
-    private static int[] numero1 = new int[tamanio];
-    
-    private static int[] numero2 = numero1;
-    
-    private static int[] numero3 = numero1.clone();
-    
+    private static int tamanio;
     
     public static void main(String[]args){
+
         Scanner sc = new Scanner(System.in);
         System.out.println("Escribe el tamaño del array: ");
         tamanio = sc.nextInt();
+        
+        //Creamos los Arrays
+        int[] numero1 = new int[tamanio];
+        int[] numero2 = numero1;
+        int[] numero3 = numero1.clone();
         
         //Llenamos de valores el array 1, como el 3 no tiene las mismas 
         //referencias tenemos que llenarlo también;
@@ -50,8 +48,9 @@ public class Ejercicio2 {
     */
     public static void insertar(int[] numeros) {
 		Scanner sc = new Scanner(System.in);
-                for (int i=0; i<numeros.length; i++) {
-			Random r = new Random();
+                Random r = new Random();
+                for (int i=0; i<tamanio; i++) {
+			
                         numeros[i] = r.nextInt(1000)+1;
 		}
     }
@@ -61,7 +60,7 @@ public class Ejercicio2 {
     introducimos por teclado, también muestra al final el numero de 
     valores mostrados, que será según el enunciado n-1
     */
-    public static void mostrar(int[] numero) {
+    /*public static void mostrar(int[] numero) {
         Scanner sc = new Scanner(System.in);
         int cont=0;
         //System.out.println("Escriba un número de valores a mostrar entre 0 y el número anterior: ");
@@ -73,5 +72,14 @@ public class Ejercicio2 {
             
         }
         System.out.println("Hay un total de " + cont + " números.");      
+    }*/
+    
+    private static void mostrar(int[] numero){
+        int cont=0;
+        for (int i=0; i<tamanio; i++){
+            System.out.println("Número ->" + numero[i]);
+            cont++;
+        }
+        System.out.println("Hay un total de " + cont + " números.");
     }
 }
