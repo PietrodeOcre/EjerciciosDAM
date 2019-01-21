@@ -17,8 +17,11 @@ import java.util.Scanner;
  */
 public class Ejercicio2 {
     
+    //Para el tamaño del array
+    private static int tamanio = 0;
+    
     //Creamos los Arrays
-    private static int[] numero1 = new int[1000];
+    private static int[] numero1 = new int[tamanio];
     
     private static int[] numero2 = numero1;
     
@@ -26,6 +29,9 @@ public class Ejercicio2 {
     
     
     public static void main(String[]args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Escribe el tamaño del array: ");
+        tamanio = sc.nextInt();
         
         //Llenamos de valores el array 1, como el 3 no tiene las mismas 
         //referencias tenemos que llenarlo también;
@@ -46,7 +52,7 @@ public class Ejercicio2 {
 		Scanner sc = new Scanner(System.in);
                 for (int i=0; i<numeros.length; i++) {
 			Random r = new Random();
-                        numeros[i] = r.nextInt(6)+1;
+                        numeros[i] = r.nextInt(1000)+1;
 		}
     }
     
@@ -55,14 +61,14 @@ public class Ejercicio2 {
     introducimos por teclado, también muestra al final el numero de 
     valores mostrados, que será según el enunciado n-1
     */
-    public static void mostrar(int[] numero1) {
+    public static void mostrar(int[] numero) {
         Scanner sc = new Scanner(System.in);
         int cont=0;
-        System.out.println("Escriba un número de valores a mostrar entre 0 y 1000: ");
-        int valor = sc.nextInt();
-        for (int i=0; i<(valor-1); i++) {
+        //System.out.println("Escriba un número de valores a mostrar entre 0 y el número anterior: ");
+        //int valor = sc.nextInt();
+        for (int i=0; i<((numero.length)-1); i++) {
             
-                System.out.println("El número: " + numero1[i]);
+                System.out.println("El número: " + numero[i]);
                 cont++;
             
         }
