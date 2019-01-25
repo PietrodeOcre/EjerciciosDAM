@@ -28,10 +28,14 @@ public class Ejercicio3 {
         
     }
     
-    private static void mostrar(int[] array){
-        for (int i=4; i>=0; i--){
-            System.out.println("Número ->" + array[i]);    
+    private static int[] mostrar(int[] array){
+        int[] arrayTemporal = new int[(array.length)];
+        
+        for(int i=(array.length)-1; i>=0; i--){
+            System.out.println("Número ->" + array[i]);
+            arrayTemporal[i] = array[i];
         } 
+        return arrayTemporal;
     }
     
 }
