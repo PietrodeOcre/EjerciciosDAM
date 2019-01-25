@@ -36,6 +36,7 @@ public class Ejercicio4 {
         return -1;
     }
     
+    //Este Método llena el array de números aleatorios
     private static void llenado(int[] numero){
         Random r = new Random();
         for (int i=0; i<numero.length; i++) {
@@ -45,6 +46,7 @@ public class Ejercicio4 {
 	}
     }
     
+    //Este método nos muestra el array
     private static void mostrar(int[] numero){
         for(int j=0; j<numero.length; j++){
             System.out.println("Número ->" + numero[j]);
@@ -53,6 +55,7 @@ public class Ejercicio4 {
         
     }
     
+    //Este método nos pregunta que elemento del array queremos eliminar
     private static int elementoEliminar(){
         Scanner sc = new Scanner(System.in);
         int num=0;
@@ -60,19 +63,24 @@ public class Ejercicio4 {
         return num = sc.nextInt();
     }
     
+    
     public static void main(String[] args){
+        //Creamos array
         int[] hacemosArray = new int[5];
         
+        //Llenamos array
         llenado(hacemosArray);
         
+        //Mostramos el array completo
         mostrar(hacemosArray);
         
+        //Pedimos un numero de posición del array, el que quermos borrar
         int borrar = elementoEliminar();
         
-        //borrarElemento(borrar, hacemosArray);
-        
+        //Mostramos el 0 o el -1 como indica el ejercicio
         System.out.println("-> ("+ borrarElemento(borrar, hacemosArray) +")");
         
+        //Comprobamos que se ha borrado la posición mostrando de nuevo el array
         mostrar(hacemosArray);
         
     }
