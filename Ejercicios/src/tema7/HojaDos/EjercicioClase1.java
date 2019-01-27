@@ -15,7 +15,7 @@ public class EjercicioClase1 {
     
     public static void main(String[] args){
         //Creamos la matríz 
-        int[][] matrizPrueba1 = new int[3][4];
+        int[][] matrizPrueba1 = new int[4][5];
         
         //Llenamos al matríz
         rellenaMatriz(matrizPrueba1);
