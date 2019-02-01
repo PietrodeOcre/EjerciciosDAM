@@ -14,7 +14,7 @@ import java.util.Scanner;
 public class Ejercicio5 {
     
     //Este método busca un valor dado en un array
-    private static void encuentra(int[] numero){
+    private static void encuentra(int[] numero, int num){
         for (int i=0; i<numero.length; i++){
             if(numero[i] == num){
                 

@@ -32,7 +32,7 @@ public class Test {
         alumno.setEdad(38);
         alumno.setSexo('H');
         alumno.setExpediente(expediente);
-        
+       
         
         //Creamos objetos de las clases
         //Si es la misma asignatura podemos ahorrar esta linea siguiente
