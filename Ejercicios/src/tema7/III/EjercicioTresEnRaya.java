@@ -42,13 +42,14 @@ public class EjercicioTresEnRaya {
         boolean validarPosicion, stop;
         
         //Coordenadas
+        int[] num = new int[2];
         int fila, columna;
         
         //Bucle de juego
         while(!finPartida(tablero, vacio)){
-            
+
             do{
-                
+
                 //Mostrar a que jugador le toca
                 turnoActual(turno);
             
@@ -56,12 +57,12 @@ public class EjercicioTresEnRaya {
                 mostrar(tablero);
             
                 stop = false;
+                
+                //Pedimos el primer número la fila y columna
+                pedirNumero(num,"Escribe un número del 0 al 2 para la fila e igual para la columna (en ese orden) separado por un espacio");
 
-                //Pedimos el primer número la fila
-                fila = pedirNumero("Escribe la fila: ");
-
-                //Pedimos el segundo número la columna
-                columna = pedirNumero("Escribe la columna: ");
+                fila=num[0];
+                columna=num[1];
 
                 //Compruena si está llena la posicion
                 validarPosicion = validarPos(tablero, fila, columna);
@@ -80,7 +81,7 @@ public class EjercicioTresEnRaya {
                 }
             
             //Si todo ha ido bien podemos continuar
-            }while(stop);
+            }while(!stop);
             
             
             //Con este if metemos el valor despues de 
@@ -93,6 +94,11 @@ public class EjercicioTresEnRaya {
             
             //Cambiar turno
             turno = !turno;
+            
+            
+        
+            //mostrarGanador(tablero, j1, j2, vacio);
+            
         }
         
         //Mostramos el tablero 
@@ -102,66 +108,28 @@ public class EjercicioTresEnRaya {
         
     }
     
-    //Mostraremos el ganador
-    private static void mostrarGanador(String[][] tablero, String j1, String j2,String def){
-        
-        String simbolo = comprobarFila(tablero,def);
-        
-        if(simbolo!=def){
-            if (simbolo == j1) {
-                System.out.println("Ha ganado el jugador 1!");
-            }else{
-                System.out.println("Ha ganado el jugador 2!"); 
-            }
-        }
-        
-        simbolo = comprobarColumna(tablero,def);
-        
-        if(simbolo!=def){
-            if (simbolo == j1) {
-                System.out.println("Ha ganado el jugador 1!");
-            }else{
-                System.out.println("Ha ganado el jugador 2!"); 
-            }
-        }
-        
-        simbolo = comprobarDiagonal1(tablero,def);
-        
-        if(simbolo!=def){
-            if (simbolo == j1) {
-                System.out.println("Ha ganado el jugador 1!");
-            }else{
-                System.out.println("Ha ganado el jugador 2!"); 
-            }
-        }
-        
-        simbolo = comprobarDiagonal2(tablero,def);
-        
-        if(simbolo!=def){
-            if (simbolo == j1) {
-                System.out.println("Ha ganado el jugador 1!");
-            }else{
-                System.out.println("Ha ganado el jugador 2!"); 
-            }
-        }
-        
-    }
-    
     //Introducimos el valor en el tablero
     private static void meterValor(String[][] tablero, int fila, int columna, String simbolo){
         tablero[fila][columna]=simbolo;
     }
     
     //Este metodo nos pide un string que muestra antes de pedir un número
-    private static int pedirNumero(String mensaje){
-  
+    private static int[] pedirNumero(int[] num,String mensaje){
+
         //mostramos el mensaje
         System.out.println(mensaje);
-        //Pedimos el número
-        int numero = sc.nextInt();
-            
+        
+        //pedimos los números por teclado
+        String movimiento = sc.nextLine();
+        
+        num[0] = Integer.parseInt(movimiento.substring(0,1));
+        num[1] = Integer.parseInt(movimiento.substring(2));
+        
+        System.out.println(num[0]);
+        System.out.println(num[1]);
+        
         //Retornamos el número
-        return numero;
+        return num;
    
     }
     
@@ -206,7 +174,7 @@ public class EjercicioTresEnRaya {
     
     //Comprobamos y ya existe un valor en la posición que queremos guardar
     private static boolean validarPos(String[][] tablero, int fila, int columna){
-        //Devuelve false si encuentra un valor entre 0 y 2
+        //Devuelve true si encuentra un valor entre 0 y 2
         return fila>=0 && fila<tablero.length && columna>=0 && columna<tablero.length;
     }
     
@@ -214,11 +182,11 @@ public class EjercicioTresEnRaya {
     //Comprobamos si hay ganador 
     private static boolean finPartida(String[][] tablero, String simbolo){
         
-        if(tableroLleno(tablero, simbolo) &&
-                comprobarFila(tablero, simbolo) !=simbolo &&
-                comprobarColumna(tablero, simbolo) !=simbolo &&
-                comprobarDiagonal1(tablero, simbolo) !=simbolo &&
-                comprobarDiagonal2(tablero, simbolo) !=simbolo
+        if(tableroLleno(tablero, simbolo) ||
+                comprobarFila(tablero, simbolo) !=simbolo ||
+                comprobarColumna(tablero, simbolo) !=simbolo ||
+                comprobarDiagonal1(tablero, simbolo) !=simbolo ||
+                comprobarDiagonal2(tablero, simbolo) !=simbolo        
                 ){
             return true;
         }
@@ -300,15 +268,58 @@ public class EjercicioTresEnRaya {
     public static void mostrar(String[][] tablero){
         //Recorremos las filas
         for (int i=0; i<tablero.length; i++){
-            //Creamos el tablero con simbolos
-            System.out.print("|");
             //Recorremos las columnas
             for (int j=0;j<tablero[i].length; j++){
                 //Mostramos la posicion del tablero
-                System.out.print(tablero[i][j]+"|");
+                System.out.print(tablero[i][j]+" ");
             }
             //Dejamos un salto de linea para mostrar de tres en tres todo el tablero
             System.out.println("");
         }
+    }
+    
+    //Mostraremos el ganador
+    private static void mostrarGanador(String[][] tablero, String j1, String j2,String def){
+        
+        String simbolo = comprobarFila(tablero,def);
+        
+        if(simbolo!=def){
+            if (simbolo == j1) {
+                System.out.println("Ha ganado el jugador 1!");
+            }else{
+                System.out.println("Ha ganado el jugador 2!"); 
+            }
+        }
+        
+        simbolo = comprobarColumna(tablero,def);
+        
+        if(simbolo!=def){
+            if (simbolo == j1) {
+                System.out.println("Ha ganado el jugador 1!");
+            }else{
+                System.out.println("Ha ganado el jugador 2!"); 
+            }
+        }
+        
+        simbolo = comprobarDiagonal1(tablero,def);
+        
+        if(simbolo!=def){
+            if (simbolo == j1) {
+                System.out.println("Ha ganado el jugador 1!");
+            }else{
+                System.out.println("Ha ganado el jugador 2!"); 
+            }
+        }
+        
+        simbolo = comprobarDiagonal2(tablero,def);
+        
+        if(simbolo!=def){
+            if (simbolo == j1) {
+                System.out.println("Ha ganado el jugador 1!");
+            }else{
+                System.out.println("Ha ganado el jugador 2!"); 
+            }
+        }
+        
     }
 }
