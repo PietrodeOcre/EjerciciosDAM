@@ -33,7 +33,7 @@ public class EjercicioTresEnRaya {
         boolean turno= true;
         
         //Creamos el tablero
-        String[][] tablero = {{"-","-","-"},{"-","-","-"},{"-","-","-"}};
+        String[][] tablero = new String[3][3];
         
         //Metodo para llenar el tablero de vacios
         llenarTablero(tablero, vacio);
@@ -44,6 +44,11 @@ public class EjercicioTresEnRaya {
         //Coordenadas
         int[] num = new int[2];
         int fila, columna;
+        
+        System.out.println("Juego de 3 en raya");
+        
+        System.out.println("Escribe un número del 0 al 2 para la fila \n "
+                        + "e igual para la columna (en ese orden) separado por un espacio");
         
         //Bucle de juego
         while(!finPartida(tablero, vacio)){
@@ -59,7 +64,7 @@ public class EjercicioTresEnRaya {
                 stop = false;
                 
                 //Pedimos el primer número la fila y columna
-                pedirNumero(num,"Escribe un número del 0 al 2 para la fila e igual para la columna (en ese orden) separado por un espacio");
+                pedirNumero(num,"Escribe las coordenadas: ");
 
                 fila=num[0];
                 columna=num[1];
@@ -80,7 +85,7 @@ public class EjercicioTresEnRaya {
                     System.out.println("No es válida la posición.");
                 }
             
-            //Si todo ha ido bien podemos continuar
+            //Mientras Stop sea diferente de true se repite el bucle
             }while(!stop);
             
             
@@ -94,11 +99,7 @@ public class EjercicioTresEnRaya {
             
             //Cambiar turno
             turno = !turno;
-            
-            
-        
-            //mostrarGanador(tablero, j1, j2, vacio);
-            
+
         }
         
         //Mostramos el tablero 
@@ -119,22 +120,56 @@ public class EjercicioTresEnRaya {
         //mostramos el mensaje
         System.out.println(mensaje);
         
-        //pedimos los números por teclado
+        //Pedimos un string con este formato "n n"
         String movimiento = sc.nextLine();
+
+        /*Con este Try conseguimos devolver un valor diferente si metemos letras
+        En lugar de saltar un error devuelve el vector {7,7} y un mensaje de error
+        Con lo cual el programa no salta de turno y no llena ninguna 
+        Posicion del tablero*/
+        try{
+            //Inicializamos las variables para comprobar que son números entre 0 y 2
+            int num1;
+            int num2;
+            
+            //Convertimos a numerica la posicion del String
+            num1=Integer.parseInt(movimiento.substring(0,1));
+            num2=Integer.parseInt(movimiento.substring(2));
         
-        num[0] = Integer.parseInt(movimiento.substring(0,1));
-        num[1] = Integer.parseInt(movimiento.substring(2));
         
-        System.out.println(num[0]);
-        System.out.println(num[1]);
-        
-        //Retornamos el número
-        return num;
-   
+            //Comprobamos que los datos están dentro del rango de nuestra matriz
+            if((num1 != 0) || 
+                    (num1 != 1) || 
+                    (num1 != 2) && 
+                    (num2 != 0) || 
+                    (num2 != 1) ||
+                    (num2 != 2) &&
+                    (!movimiento.substring(1, 1).equals(" "))
+                    ){
+                
+                    //Pasamos a número las posiciones del String con el que pedimos
+                    //los datos
+                    num[0] = num1;
+                    num[1] = num2;
+
+            }
+
+            //Retornamos el número correcto
+            return num;
+
+        }catch(NumberFormatException e){
+            //Mostramos un error si se introducen letras
+            System.out.println("Error");
+            
+            //Cambiamos el valor del vector para que no salte turno
+            num[0]=7;
+            num[1]=7;
+            //Devolvemos un valor que sabemos que no muestra nada en la tabla 
+            //Cuando existe un error y ahorramos la excepción al introducir letras
+            return  num;
+        }
+
     }
-    
-    
-    
     
     //Este método devuelve true si la posición contiene un valor que no sea "-"
     private static boolean hayValor(String[][] tablero, int fila , int columna, String simbolo){

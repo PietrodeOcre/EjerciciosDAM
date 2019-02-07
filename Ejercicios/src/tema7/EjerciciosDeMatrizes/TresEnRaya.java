@@ -34,7 +34,8 @@ public class TresEnRaya {
         mostrar(tablero);
         
         //Mostramos descripción y las normas del juego
-        System.out.println("Escribe un número del 0 al 2 para la fila e igual para la columna (en ese orden) separado por un espacio");
+        System.out.println("Escribe un número del 0 al 2 para la fila e igual para \n"
+                + "la columna (en ese orden) separado por un espacio");
         
         //Pedimos la posicion
         num = pedirPos();
@@ -72,15 +73,17 @@ public class TresEnRaya {
         int num2=0;
         System.out.println("Escribe la fila y la columna: ");
         String movimiento = sc.nextLine();
-        try{
-            //Pasamos a número las posiciones del String con el que pedimos
-            //los datos
-            num1 = Integer.parseInt(movimiento.substring(0,1));
-            num2 = Integer.parseInt(movimiento.substring(2));
-        }catch(NumberFormatException e) {
-            System.out.println("Escribe un número del 0 al 2 para la fila e igual para la columna (en ese orden) separado por un espacio");
-        }
         
+        //Pasamos a número las posiciones del String con el que pedimos
+        //los datos
+        try{
+        num1 = Integer.parseInt(movimiento.substring(0,1));
+        num2 = Integer.parseInt(movimiento.substring(2));
+        }catch (NumberFormatException e){
+            System.out.println("Escribe un número del 0 al 2 para la fila e igual para \n"
+                + "la columna (en ese orden) separado por un espacio");
+        }
+    
         //Comprobamos que los datos están dentro del rango de nuestra matriz
         if((num1 != 0) || 
                     (num1 != 1) || 
@@ -91,16 +94,23 @@ public class TresEnRaya {
                     (!movimiento.substring(1, 1).equals(" "))
                     ){
                 //Si lo estan asignamos al vector las coordenadas para el tablero
-                num[0] = Integer.parseInt(movimiento.substring(0,1));
-                num[1] = Integer.parseInt(movimiento.substring(2));
+                num[0] = num1;
+                num[1] = num2;
                 
             }else{
                 //Si no mostramos un error para poder volver a preguntar 
                 System.out.println("Escribe un número del 0 al 2 para la fila e igual para la columna (en ese orden) separado por un espacio");
             }
+
         //Finalmente devolvemos un vector con las coordenadas
         return num;
-  
+        /*
+        En este método reptendía realizar una comprobación, de manera
+        que si se introduce una letra en lugar de un número muestre un error
+        y repita la pregunta pero pr mucho que he intentado no lo he conseguido
+        entiendo que debe ser con un try/catch pero no he sabido hacerlo 
+        funcionar correctamente.
+        */
     }
     
     //Introducimos símbolo en el tablero
