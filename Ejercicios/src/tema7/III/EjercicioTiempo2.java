@@ -6,6 +6,7 @@ Ordenar vector y aplicar busqueda binaria al vector midiendo el tiempo.
 package tema7.III;
 
 import java.util.Random;
+import java.util.Scanner;
 
 
 /**
@@ -16,26 +17,32 @@ public class EjercicioTiempo2 {
     
     public static void main (String[]args){
         
-        int[] numeros = new int [10000];
+        int[] numeros = new int [100000];
         alatorio(numeros);
+        
+        mostrar(numeros);
+        
+        Scanner sc =new Scanner(System.in);
+        System.out.println("Escribe el número a buscar: ");
+        int numer = sc.nextInt();
         
         long tiempoInicial = System.currentTimeMillis();
         
-        busquedaSecuencial(numeros, 5000);
+        System.out.println(busquedaSecuencial(numeros, numer));
         
         long tiempoFinal = System.currentTimeMillis();
         
-        System.out.println("El tiempo ha sido: "+((tiempoFinal-tiempoInicial)/1000) + "s");
-        
-        ordena(numeros);
+        System.out.println("El tiempo ha sido: "+((tiempoFinal-tiempoInicial)) + "ms");
         
         tiempoInicial = System.currentTimeMillis();
         
-        busquedaBinaria(numeros, 0, 10000-1,5000);
+        ordena(numeros);
+        
+        System.out.println(busquedaBinaria(numeros, 0, numeros.length-1, numer));
         
         tiempoFinal = System.currentTimeMillis();
         
-        System.out.println("El tiempo ha sido: "+((tiempoFinal-tiempoInicial)/1000) + "s");
+        System.out.println("El tiempo ha sido: "+((tiempoFinal-tiempoInicial)) + "ms");
         
     }
     
@@ -90,10 +97,29 @@ public class EjercicioTiempo2 {
          for(int i = 0; i < vector.length; i++){//recorremos todo el arreglo
              if(vector[i] == dato){//comparamos el elemento en el arreglo con el buscado
            posicion = i;//Si es verdadero guardamos la posicion
-           break;//Para el ciclo
+           return posicion;
+           //break;//Para el ciclo
           }
         }
         return posicion;
     }
     
+    //Mostramos el tablero completo
+    public static void mostrar(int[] tablero){
+        //Recorremos las filas
+
+        for (int i=0; i<tablero.length; i++){
+            //Recorremos las columnas
+            //for (int j=0;j<tablero[i].length; j++){
+                //Mostramos la posicion del tablero
+                System.out.println(tablero[i]+" "+tablero[++i] +" "
+                        +" "+tablero[++i]+" "+tablero[++i]+" "+tablero[++i]
+                        
+                        );
+ 
+            //}
+            //Dejamos un salto de linea para mostrar de tres en tres todo el tablero
+            //System.out.println("");
+        }
+    }
 }
