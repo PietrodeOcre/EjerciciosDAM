@@ -15,13 +15,16 @@ import java.util.Scanner;
 public class MatrizAlreves {
     public static void main (String[]args){
         Scanner sc = new Scanner(System.in);
+        System.out.println("Escribe el número de filas: ");
         int filas = sc.nextInt();
+        System.out.println("Escribe el número de Columnas: ");
         int columnas = sc.nextInt();
         int matriz[][] = new int [filas][columnas];
         iniciaMatriz(matriz);
         
         imprimeMatriz(matriz);
         invertirMatriz(matriz);
+        System.out.println("");
         imprimeMatriz(invertirMatriz(matriz));
         
     }

@@ -14,6 +14,7 @@ public class Empleado implements Comparable<Empleado>, Cloneable{
     private static int id;
     private int identificador;
     private String nombre;
+    private String dni;
 
     
     //Getters and Setters
@@ -33,6 +34,16 @@ public class Empleado implements Comparable<Empleado>, Cloneable{
         this.nombre = nombre;
     }
 
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
+    
+    
+
     //Constructor
     public Empleado() {
     }
@@ -48,10 +59,12 @@ public class Empleado implements Comparable<Empleado>, Cloneable{
     }
 
     //toString
+
     @Override
     public String toString() {
-        return "Empleado{" + "identificador=" + identificador + ", nombre=" + nombre + '}';
+        return "Empleado{" + "identificador=" + identificador + ", nombre=" + nombre + ", dni=" + dni + '}';
     }
+    
     
     //Clone
     @Override

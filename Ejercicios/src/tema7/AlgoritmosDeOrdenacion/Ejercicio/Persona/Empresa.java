@@ -1,6 +1,6 @@
 /* 
 una clase empresa con id auto numerico y nombre
-un empleado con 10 posiciones que se tiene que poder comprar con 
+un empleado con 10 posiciones que se tiene que poder comparar con 
 id.decreciente
 tiene que usar esta cabecera con un metodo que devuelve todos los 
 nombres de los empleados separado con comas en un strinfbuffer pero no los imprime
@@ -19,8 +19,9 @@ Crea una clase main con todaslas pruebas.
  */
 package tema7.AlgoritmosDeOrdenacion.Ejercicio.Persona;
 
+
 import java.util.Scanner;
-import tema6.EjerciciosDos.EjercicioSeis.Empleado;
+
 
 
 /**
@@ -32,7 +33,8 @@ public class Empresa implements Comparable<Empresa>, Cloneable{
     private static int id;
     private int identificador;
     private String nombre;
-    private Empleado empleado = new Empleado();
+    private static Empleado[] listaEmpleado = new Empleado[10];
+    
 
     //Getters and Setters
     public int getIdentificador() {
@@ -51,12 +53,12 @@ public class Empresa implements Comparable<Empresa>, Cloneable{
         this.nombre = nombre;
     }
 
-    public Empleado getEmpleado() {
-        return empleado;
+    public Empleado[] getListaEmpleado() {
+        return listaEmpleado;
     }
 
-    public void setEmpleado(Empleado empleado) {
-        this.empleado = empleado;
+    public void setListaEmpleado(Empleado[] listaEmpleado) {
+        this.listaEmpleado = listaEmpleado;
     }
     
     
@@ -68,9 +70,10 @@ public class Empresa implements Comparable<Empresa>, Cloneable{
     }
     
     //Constructor
-    public Empresa(String nombre){
+    Empresa(String nombre) {
         this.identificador = id++;
-        this.nombre = nombre;        
+        this.nombre = nombre;  
+        
     }
     
     //Añadir empleados
@@ -106,18 +109,22 @@ public class Empresa implements Comparable<Empresa>, Cloneable{
     }
     
     //toString
+
     @Override
     public String toString() {
-        return "Empresa{" + "identificador=" + identificador + ", nombre=" + nombre + ", empleado=" + empleado + '}';
+        return "Empresa{" + "identificador=" + identificador + ", nombre=" + nombre + ", Empleados{" + listaEmpleado[0] + "}";
     }
     
+    
+    
     //Clone
-
     @Override
     public Object clone() throws CloneNotSupportedException {
         Empresa empresa = (Empresa)super.clone();
-        empresa.empleado = (Empleado)this.empleado.clone();
+        
         return (Object)empresa; 
     }
+
+    
     
 }
