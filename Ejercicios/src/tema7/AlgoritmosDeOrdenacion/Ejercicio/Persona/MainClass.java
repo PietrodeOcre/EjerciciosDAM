@@ -5,6 +5,9 @@
  */
 package tema7.AlgoritmosDeOrdenacion.Ejercicio.Persona;
 
+import java.util.Arrays;
+import java.util.StringTokenizer;
+
 /**
  *
  * @author pietrodeocre
@@ -60,14 +63,13 @@ public class MainClass {
         //compareTo
         @Override
         public int compareTo(Empleado t) {
-            if (this.identificador < t.identificador){
-                return -1;
-            }
-            if (this.identificador > t.identificador){
-                return 1;
-            }
-            return 0;
+            
+            return this.identificador-t.getIdentificador();
         }
+        
+        
+        //Método para comparar empleados apartir de un array 
+        //public Empleado[] orden
         
         
         
@@ -84,7 +86,7 @@ public class MainClass {
         static int id;
         private int identificador;
         private String nombre;
-        private static Empleado[] empleado;
+        private Empleado[] empleado;
         
         //Getters and Setters
         public int getIdentificador() {
@@ -108,7 +110,7 @@ public class MainClass {
         }
 
         public void setEmpleado(Empleado[] empleado) {
-            Empresa.empleado = empleado;
+            this.empleado = empleado;
         }
         
         
@@ -118,19 +120,19 @@ public class MainClass {
         public Empresa(String nombre, Empleado[] empleado) {
             this.identificador = id++;
             this.nombre = nombre;
-            Empresa.empleado = empleado;
+            this.empleado = empleado;
         }
         
     
         //toString
         @Override
         public String toString() {
-            return "Empresa{" + "identificador=" + this.identificador + ", nombre=" + this.nombre + ", Empleado{" + listaEmpleado(Empresa.empleado) +'}';
+            return "Empresa{" + "identificador=" + this.identificador + ", nombre=" + this.nombre + ", Empleado{" + listaEmpleado(this.empleado) +'}';
         }
         
         //compareTo
-        public int compareTo(Empresa o) {
-        return -this.nombre.compareTo(o.getNombre());
+        public int compareTo(Empresa t) {
+            return this.identificador-t.getIdentificador();
         }
         
         //método para crear un string con todos los empleados
@@ -146,18 +148,16 @@ public class MainClass {
         }
         
         //Método que devuelve un array de nombres de empleados de la empresa
-        private static StringBuffer[] listaEmpleadoArray (StringBuffer lista){
+        private static String[] listaEmpleadoArray (String listado){
             
-            //StringBuffer[] listaNombre = new String[10];
-            
-             
-            //lista = listaEmpleado(this.getEmpleado());
-            
+            String[] listaNombre = new String[10];
+            StringTokenizer lista;
+            lista = new StringTokenizer(listado);
+
             for (int i = 0; i < 10; i++) {
-                
+                listaNombre[i] = lista.nextToken();
             }
-            
-            
+
             return listaNombre;
         }
         
@@ -183,9 +183,18 @@ public class MainClass {
         
         Empresa empresa0 = new Empresa("Indra", listaEmpleados);
         
+        Arrays.sort(listaEmpleados);
+
+        
+        imprimeArrayPersona(listaEmpleados);
+        
         System.out.println(empresa0);
         
+        String listado = Empresa.listaEmpleado(empresa0.empleado).toString();
         
+        System.out.println(listado);
+        
+        System.out.println(Arrays.toString(Empresa.listaEmpleadoArray(listado)));
         
         
     }
