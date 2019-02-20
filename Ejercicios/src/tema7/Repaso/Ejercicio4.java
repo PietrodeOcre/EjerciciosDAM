@@ -25,23 +25,13 @@ public class Ejercicio4 {
         return array;
     }
     
-    private static Object mayorMenorString (Object array){
+    private static void mayorMenorString (Object[] array){
         
-        if (array instanceof int[]){
-            
-            Arrays.sort((int[]) array);
-            
-            
-            return array;
-        }else if(array instanceof String[]){
-            
-            Arrays.sort((String[]) array);
-            
-            
-            return array;
-        }
-        return array;
-        
+        Arrays.sort(array);
+  
+        System.out.println(array[0]);
+        System.out.println(array[array.length-1]);
+
     }
     
     public static void main(String[] args) {
@@ -77,6 +67,9 @@ public class Ejercicio4 {
         
         System.out.println(array2[0]);
         System.out.println(array2[array2.length-1]);
+        
+        //mayorMenorString(array1);
+        
     }
     
 }
