@@ -23,11 +23,11 @@ public class Ejercicio6 {
         //Arrays.sort(cadena);
         
         cadena[1] = "Hola22";
-        cadena[3] = "Hola22";
+        cadena[2] = "Hola22";
         
         //Arrays.sort(cadena);
         
-        //mostrar(cadena);
+        mostrar(cadena);
         
         //escribeElementosRepetidosArray(cadena);
         
@@ -60,8 +60,8 @@ public class Ejercicio6 {
     //Comparamos el segundo con el primero, el tercero con el segundo y sucesivamente
     private static void escribeElementosRepetidosArraySinOrden(String[] array){
         
-        for(int i = 1; i < array.length-1; i++) { // recorremos todo el array
-            for (int j = i+1; j < array.length-1; j++) {
+        for(int i = 0; i < array.length; i++) { // recorremos todo el array
+            for (int j = i+1; j < array.length; j++) {
                 if(array[i].equals(array[j])) { // Comparamos si i es igual a su anterior
                     System.out.println("Se repite el num: " + array[i]); // mostramos en pantalla
                 }

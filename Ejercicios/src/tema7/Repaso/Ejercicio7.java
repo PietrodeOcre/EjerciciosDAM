@@ -18,7 +18,7 @@ public class Ejercicio7 {
         
         String[] cadena = new String[5];
         
-        cadena[0] = "hola";
+        cadena[0]= "hola";
         cadena[1]= "adios";
         cadena[2]= "hola";
         cadena[3]= "pena";
@@ -27,31 +27,22 @@ public class Ejercicio7 {
         String[] cadena2 = null;
         
         
-        cadena2 = (String[])escribeElementosRepetidosArraySinOrden(cadena);
+        escribeElementosRepetidosArraySinOrden(cadena);
         
-        System.out.println(Arrays.toString(cadena2));
+        //System.out.println(Arrays.toString(cadena2));
         
     }
     
     //Comparamos el segundo con el primero, el tercero con el segundo y sucesivamente
-    private static Object[] escribeElementosRepetidosArraySinOrden(Object[] array){
+    private static void escribeElementosRepetidosArraySinOrden(String[] array){
         
-        Object[] arrayNew = new Object[array.length];
-         
-        
-        
-        for(int i = 1; i < array.length-1; i++) { // recorremos todo el array
-            for (int j = i+1; j < array.length-1; j++) {
+        for(int i = 0; i < array.length; i++) { // recorremos todo el array
+            for (int j = i+1; j < array.length; j++) {
                 if(array[i].equals(array[j])) { // Comparamos si i es igual a su anterior
-                    arrayNew[i] = array[i];
                     System.out.println("Se repite el num: " + array[i]); // mostramos en pantalla
                 }
             }
-        }
-        
-        
-        
-        return arrayNew;
+        } 
         
     }
     
