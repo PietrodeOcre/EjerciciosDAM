@@ -1,7 +1,6 @@
 /*
-Escribe un método en Java que encuentre los elementos duplicados de dos arrays de
-cadenas y los devuelva en nuevo array:
-private String[] encuentraElementosRepetidos(String []listaCadenas1, String []listaCadenas2)
+Escribe un método que elimine los elementos duplicados de un array de cadenas:
+private String[] eliminaElementosDuplicados(String []listaCadenas)
  */
 package tema7.Repaso;
 
@@ -11,8 +10,7 @@ import java.util.Arrays;
  *
  * @author pietrodeocre
  */
-public class Ejercicio7 {
-    
+public class Ejercicio8 {
     
     public static void main(String[] args) {
         
@@ -24,12 +22,12 @@ public class Ejercicio7 {
         cadena[3]= "pena";
         cadena[4]= "adios";
         
-        String[] cadena2 = null;
+        //String[] cadena2 = null;
         
         
-        cadena2 = escribeElementosRepetidosArraySinOrden(cadena);
+        escribeElementosRepetidosArraySinOrden(cadena);
         
-        System.out.println(Arrays.toString(cadena2));
+        System.out.println(Arrays.toString(cadena));
         
     }
     
@@ -37,18 +35,18 @@ public class Ejercicio7 {
     private static String[] escribeElementosRepetidosArraySinOrden(String[] array){
         
         //int cont=0;
-        String[] cad = new String[array.length];
+        //String[] cad = new String[array.length];
         
         for(int i = 0; i < array.length; i++) { // recorremos todo el array
             for (int j = i+1; j < array.length; j++) {
                 if(array[i].equals(array[j])) { // Comparamos si i es igual a su anterior
-                    cad[i] = array[i];
+                    array[j] = "";
                     //cont++;
                     //System.out.println("Se repite el num: " + array[i]); // mostramos en pantalla
                 }
             }
         } 
-        return cad;
+        return array;
         
     }
     
