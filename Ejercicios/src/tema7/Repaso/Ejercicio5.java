@@ -33,6 +33,8 @@ public class Ejercicio5 {
         mostrar(array);
     }
     
+    
+    //devuelve un array de enteros del revés
     private static int[] reverseElementosArray(int []array){
         int[] arrayTemporal = new int[(array.length)];
         int contC = 0;
@@ -44,6 +46,7 @@ public class Ejercicio5 {
         
     }
     
+    //devuelve un array de lo que sea del revés
     private static Object[] reverseElementosArrayParaCualquierTipo(Object []array){
         Object[] arrayTemporal = new Object[(array.length)];
         int contC = 0;
