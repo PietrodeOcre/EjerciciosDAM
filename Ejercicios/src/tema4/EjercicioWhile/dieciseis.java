@@ -15,11 +15,10 @@ public class dieciseis {
      */
     
     public static void main(String[] args) {
-        int x;
-        x = 100;
+        int x = 100;
 	do {
             System.out.println(x);
-            x = x-7;
+            x -=7;
         } while(x>7);
     }
 }

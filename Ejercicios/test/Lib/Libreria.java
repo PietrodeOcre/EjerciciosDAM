@@ -124,6 +124,233 @@ public class Libreria {
         System.out.print("La suma de los números pares es: "+c);
     }
     
+    private static void mayorDeTres(int a, int b, int c){
+        //Indica el mayor de tres números o ninguno si todos son iguales
+        System.out.print("El mayor de los tres es "+((a==b && b==c)?"Ninguno":(a>b && a>c)?a:(b>a && b>c)?b:c));
+    }
+    
+    private static void media(){
+        //Indica la media de los números que nos pida hasta que pongamos un número negativo
+        Scanner sc = new Scanner(System.in);
+        int contador, sumador, numerouno;
+        //Asignar variables
+        contador=0;
+        sumador=0;
+        //Definimos Condiciones
+        do {
+            //Pedimos número
+            System.out.print("Escribe un numero: ");
+            numerouno = sc.nextInt();
+            if (numerouno>=0){
+                //Realizamos operaciones
+                contador++;
+                sumador += numerouno;
+            }
+        } while (numerouno>=0);
+        System.out.println("La media es: "+(sumador/contador));
+    }
+    
+    private static boolean impar(int numero){
+        //Devuelve true si es impar y false si es par  
+        return numero%2!=0;
+    }
+    
+    private static boolean par(int numero){
+        //Devuelve true si es par y false si es impar
+        return numero%2==0;
+    }
+    
+    private static void aciertaNumero(){
+        //Juego para acertar un número aleatorio 
+        Scanner sc = new Scanner(System.in);
+        int num_secreto = (int) (Math.random()*1000);
+        int num_introducido;
+        boolean acierto = false;
+        do {
+            System.out.print("Escribe un número: ");
+            num_introducido = sc.nextInt();
+            if (num_introducido == num_secreto){
+                System.out.print("Acertaste!!!!");
+                acierto=true;
+            }else if (num_introducido > num_secreto){
+                System.out.println("Menor!");
+            }else{
+                System.out.println("Mayor!");
+            }
+        }while (num_introducido != num_secreto);
+    }
+    
+    private static void factorial(int num){
+        //Indica el factorial del número pasado por parámetro
+        int cont, sum;
+        cont=1;
+        sum=1;
+        while(cont<num){
+            cont++;
+            sum*=cont;
+        }
+        System.out.println("El factorial del número es: "+sum);
+    }
+    
+    private static void productoDeImpares(int numero){
+        //Indica el producto de números impares hasta el número indicado en el parámetro
+        int cont, num;
+        //Asignamos valores a variables
+        cont=0;
+        num=1;
+        //Definimos bucle
+        while(cont<numero){
+            cont++;
+            if (cont%2!=0){
+                num*=cont;
+                System.out.print((cont!=(numero-1))?cont+"*":cont);
+            }
+        }
+        System.out.println("="+num);
+    }
+    
+    private static void cuentaAtras(int num){
+        //Cuenta atras desde cien, contando de parametro num en parametro num
+        int x = 100;
+	do {
+            System.out.println(x);
+            x -=num;
+        } while(x>num);
+    }
+    
+    private static void arrayRectangulo(int dimX, int dimY){
+        //Crea un rectangulo de la dimensiones indicadas por parametros
+        //Recorre el array mostrando numeros en forma diagonal 
+        int a[][] = new int[dimX][dimY];
+        
+        for (int cnt = 0, 
+                 total = dimX * dimY,
+                 x = 0,
+                 y = 0;
+             cnt < total; 
+             cnt++) {
+
+            a[x][y] = cnt;
+
+            // mover en diagonal dirección noreste.
+            x--;
+            y++;
+
+            // si quedó fuera de los límites del rectángulo,
+            // mover al comienzo de la próxima fila en diagonal.
+            if (x < 0 || x >= dimX || y < 0 || y >= dimY) {
+                y++;
+                int delta = Math.min(y, dimX - x - 1);
+                x += delta;
+                y -= delta;
+            }
+        }
+
+        for(int x = 0; x < dimX; x++) {
+            for(int y = 0; y < dimY; y++) {
+                if (y != 0) {
+                    System.out.print("\t");
+                }
+                System.out.print(a[x][y]);
+            }
+            System.out.println();
+        }
+    }
+    
+    private static void positivoNegativo(int num){
+        //Indica si un número es positivo o negativo
+        System.out.println("El número es "+((num>0)?"positivo":"negativo"));
+    }
+    
+    private static void cuadradoDeN(int num){
+        //Muestra el cuadrado de un número
+        System.out.println("El cuadrado del número es "+(num*num));
+    }
+    
+    private static void numeroNumeros(){
+        //Pide números hasta poner un negativo para mostrar el número de números tecleado
+        int numerodos = 0;
+        int numerouno = 0;
+        Scanner sc = new Scanner(System.in);
+        // Declaramos condicion 
+        do {
+            System.out.print("Escribe un número: ");
+            numerouno = sc.nextInt(); //Pedimos el número
+            numerodos++;        
+        } while(numerouno>0);
+        System.out.println("Has tecleado " + numerodos + " números");
+    }
+    
+    private static boolean esPrimo(int numero){
+        //Revisa si un numero entero es primo o no.
+        //Si es par no es primo
+        int contador = 2;
+        boolean primo=true;
+        if (numero%2==0){
+            primo = false;
+            return primo;
+        }
+        while ((primo) && (contador!=numero)){
+            if (numero % contador == 0)
+            primo = false;
+            contador++;
+        }
+        return primo;
+    }
+    
+    private static void potencia(int base, int exponente){
+        //Eleva un número a otro
+        int resultado = 0;
+        for (byte i=0; i<exponente; i++){
+            if (i==0){
+                resultado = base;
+            } else{
+                resultado=resultado*base;
+            }
+            
+        }
+        System.out.println("El resultado es: "+resultado);
+    }
+    
+    private static void tablaMultiplicar() {
+        // Tablas de multiplicar desde 0 a 10
+        int acumulado;
+        acumulado = 0;
+        //Definimos la iteración
+        for (int contadorInicio=1;contadorInicio<=11; contadorInicio++){
+            //Con este bucle for creamos el primer número a multiplicar
+            for (int contadorTabla=0;contadorTabla<=10; contadorTabla++){
+                //Con este bucle for creamos el número por el cual se multiplica y mostramos el resultado
+                System.out.println(acumulado+"*"+contadorTabla+"="+
+                        (acumulado*contadorTabla ));
+            }
+            acumulado++;
+        }
+    }
+    
+    private static void primosHasta(int cuentaHasta){
+        //Nos muestra los números primos desde 0 hasta el número pasado por parámetro 
+        int secuencia, primo;
+        secuencia=1;
+        primo=0;
+        //Comenzamos iteración
+        while(secuencia<=cuentaHasta){
+            int sumador=0;//aquí guardamos por cuantos números es divisible el número iterado
+            for (int division=1; division<=secuencia; division++){
+                if (secuencia%division==0){
+                    ++sumador;//Si el numero es divisible por 0 se suma aqui
+                }
+            }
+            if (sumador==2){
+                primo++;//Si el numero solo es divisible 2 veces es por que es primo
+                //Se divide por 1 y por el mismo, es decir 2 veces.
+                //System.out.println(secuencia);
+            }
+            ++secuencia;//Aumentamos la secuencia para pasar al siguiente número
+        }
+        System.out.println("Los números primos son: "+primo);
+    }
+    
     
     
     

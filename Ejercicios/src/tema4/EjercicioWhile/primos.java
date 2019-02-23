@@ -28,8 +28,12 @@ public class primos {
             boolean esPrimo = esPrimo(i);
             if (esPrimo){
                 contprimos++;
+                System.out.println(contprimos);
             }
         }
+        
+        
+        
     }
     //Si es estatic se le puede llamar desde otra clase
     // nombreClase.nombreMetodo(parametro);
@@ -47,6 +51,6 @@ public class primos {
                 break;
             }
         }
-        return false;
+        return true;
     }
 }
