@@ -20,6 +20,7 @@ public class sieteSegunda {
         // Definimos variables
         int a, b = 0, c = 0;
         //Asignamos valor a variable aç
+        //Indica la suma de numeros pares desde 0 hasta el número dado
         System.out.print("Escribe un número:");
         a = sc.nextInt();
         while(b<=a){

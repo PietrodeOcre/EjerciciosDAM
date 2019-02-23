@@ -16,21 +16,21 @@ public class ochoSegunda {
      */
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-		int alumnos;
-		int contador;
-		int nota;
-		double nota1;
-		double nota2;
-		System.out.println("Indique el número de alumnos:");
-		alumnos = sc.nextInt();
-		contador = 1;
-		while (contador<=alumnos) {
-			System.out.println("Escribe la primera nota del alumno "+contador);
-			nota1 = sc.nextDouble();
-			System.out.println("Escribe la segunda nota:");
-			nota2 = sc.nextDouble();
-			System.out.println("La nota del alumno "+contador+" es "+((nota1*0.6)+(nota2*0.4)));
-			++contador;
-		}
+	int alumnos;
+	int contador;
+	int nota;
+	double nota1;
+	double nota2;
+	System.out.println("Indique el número de alumnos:");
+	alumnos = sc.nextInt();
+	contador = 1;
+	while (contador<=alumnos) {
+            System.out.println("Escribe la primera nota del alumno "+contador);
+            nota1 = sc.nextDouble();
+            System.out.println("Escribe la segunda nota:");
+            nota2 = sc.nextDouble();
+            System.out.println("La nota del alumno "+contador+" es "+((nota1*0.6)+(nota2*0.4)));
+            ++contador;
+        }
     }
 }
