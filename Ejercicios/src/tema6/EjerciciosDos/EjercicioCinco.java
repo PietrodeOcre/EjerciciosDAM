@@ -19,6 +19,6 @@ public class EjercicioCinco {
     }
     
     public static void main (String[]args){
-        System.out.println(sumaDosDigitos(44456457));
+        System.out.println(sumaDosDigitos(88));
     }
 }

@@ -6,6 +6,7 @@
 package Lib;
 
 import java.util.Scanner;
+import java.util.concurrent.ThreadLocalRandom;
 
 
 
@@ -301,18 +302,14 @@ public class Libreria {
         return primo;
     }
     
-    private static void potencia(int base, int exponente){
+    private static int potencia(int base, int exponente){
         //Eleva un número a otro
-        int resultado = 0;
-        for (byte i=0; i<exponente; i++){
-            if (i==0){
-                resultado = base;
-            } else{
-                resultado=resultado*base;
-            }
-            
+        int potencia = 1;
+        for(int i = 0; i<exponente;i++){
+            potencia *= base;
         }
-        System.out.println("El resultado es: "+resultado);
+        System.out.println("El resultado es: "+potencia);
+        return potencia;
     }
     
     private static void tablaMultiplicar() {
@@ -506,6 +503,48 @@ public class Libreria {
                     System.out.print(aux);
                 }
             System.out.println("");
+        }
+    }
+    
+    private void multiploDeCinco(int num){
+        //Indica si un número es multiplo de 5
+        if(num%5!=0){
+                System.out.println(num+" es multiplo de cinco.");
+            }
+    }
+    
+    private static double millasAMetros(double millas) {
+        //Pasa las millas a metros
+        double metros;
+        return metros = millas*1852;
+    }
+    
+    private static double millasAKilometros(double millas){
+        //Pasa los metos a millas
+        double metros;
+        return metros = millas*1.8;
+    }
+    
+    private static void numeroAmstrom(int elNum){
+        //Indica si un número es de Amstrom o no 
+        if((elNum/100)==0 || (elNum/10)==0){
+            System.out.print("El número debe ser de tres cifras! ");
+        }
+        int centenas = (elNum/100);
+        int decenas = (elNum/10)-(centenas*10);
+        int unidades = (elNum%10);
+        int sumaNum = (int)(Math.pow(centenas, 3))+(int)(Math.pow(decenas, 3))+(int)(Math.pow(unidades, 3));
+        System.out.println(centenas+"+"+decenas+"+"+unidades+"="+sumaNum);
+        int cont = 0, producto = 1;
+        System.out.println("El número "+((elNum==sumaNum)?"si es Amstrom":"no es Amstrom"));
+    }
+    
+    private static int sumaDosDigitos(int numero){
+        //Devuelve la suma de los digitos del número pasado por parámetro
+        if (numero == 0){
+            return numero;
+        }else{
+            return sumaDosDigitos(numero/10)+(numero%10);
         }
     }
     
