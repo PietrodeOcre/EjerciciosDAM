@@ -8,6 +8,7 @@ package Lib;
 import java.util.Scanner;
 
 
+
 /**
  *
  * @author pietrodeocre
@@ -180,16 +181,17 @@ public class Libreria {
         }while (num_introducido != num_secreto);
     }
     
-    private static void factorial(int num){
-        //Indica el factorial del número pasado por parámetro
-        int cont, sum;
-        cont=1;
-        sum=1;
+    private static int factorial(int num){
+        //Indica y devuelve el factorial del número pasado por parámetro
+        int sum=0;
+        int cont=0;
         while(cont<num){
             cont++;
             sum*=cont;
         }
         System.out.println("El factorial del número es: "+sum);
+        return sum;
+        
     }
     
     private static void productoDeImpares(int numero){
@@ -351,6 +353,83 @@ public class Libreria {
         System.out.println("Los números primos son: "+primo);
     }
     
+    private static void notaAlumno(int nota){
+        //Método que devuelve si un alumno aprueba o no segun su nota.
+        int suspenso=0;
+        int aprobado=0;
+        int condicion=0;
+        int cont = 0;
+        do{
+            if(nota<4){
+                suspenso++;
+            } 
+            if(nota==4){
+                condicion++;
+            }
+            if (nota>=5){
+                aprobado++;
+            }
+            cont++;
+        }while(cont<=6);
+        System.out.println("Aprobados: "+aprobado);
+        System.out.println("Condicionados : "+condicion);
+        System.out.println("Suspendidos: "+suspenso);
+    }
+    
+    private static void divsiblePor3(int num){
+        if (num%3 == 0){ //Si el número dividido por 3 tiene resto 0, es múltiplo
+                System.out.println("Este un número: "+num+", es múltiplo de tres.");
+            }
+    }
+    
+    private static void sueldoMasGrande(double sueldo){
+        //Indica cual es el mayor de entre 10 sueldos
+        int sueldos = 10;
+        int cont=1;
+        double sueldoMax=0;
+        do {
+            if (sueldo>sueldoMax){
+                sueldoMax=sueldo;
+            }
+            cont++;
+        }while(cont>=sueldos);
+        System.out.print("El sueldo mas alto es:  "+sueldoMax);
+    }
+    
+    private static void rombo(){
+        //Dibuja un rombo mediante anidamiento de for (pero sin anidar)
+        int i;
+        int j;
+        String k= " ";
+        String h = "*";
+        
+               
+        for (i=0; i<1; i++){
+            System.out.println(k+k+k+h);
+        }
+        for (i=1; i<=1; i++){
+            System.out.println(k+k+h+h+h);
+        }
+        for (i=1; i<=1; i++){
+            System.out.println(k+h+h+h+h+h);
+        }
+        for (i=1; i<=1; i++){
+            System.out.println(k+k+h+h+h);
+        }
+        for (i=0; i<1; i++){
+            System.out.println(k+k+k+h);
+        }
+    }
+    
+    private static int numeroCifrasDos(long b){
+        //Devuelve el numero de cifras de un número dado
+        int cont=0;
+        do{
+            b=b/10;
+            ++cont;
+        }while(b>=1);
+        return cont;
+    }
     
     
     
