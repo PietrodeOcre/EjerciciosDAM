@@ -11,27 +11,24 @@ package tema5.Repaso;
  */
 class Combinatoria {
     
-    public long combinaciones(int n, int k){
-        if (n<0 || k<0)throw new IllegalArgumentException("n y k han de ser positivos");
-        //Casos base
-        else if(k==0 || n==k) return 1;//caso base para 1
-        else if (k>n) return 0; //caso base para 0
-        //Caso general
-        else return combinaciones(n-1, k-1)+ combinaciones(n-1,k);
+    private static int combinatoria(int n, int r){
+        if( r == 0 || r == n){
+            return 1;}
+        if( r > n){
+            return 0;}
+        int a , b;
+        a = combinatoria ( n - 1 , r -1 );
+        b = combinatoria ( n - 1 , r );
+        return a + b;
         
     }
     
     public static void main(String[] args){
-        if (args.length!=2){
-            System.out.println("Se espera dos números como parámetro, n y k. ");
-            System.out.println("n= Número total de elementos");
-            System.out.println("k= Elementos en cada combinación");
-            System.out.println("Devuelve el coeficiente binimial(n, k)");
-        }else {
-            int n = Integer.parseInt(args[0]);//convertimos String a int
-            int k = Integer.parseInt(args[0]);//convertimos String a int
-            Combinatoria c = new Combinatoria();//Creamos un objeto c de tipo Combinatoria
-            System.out.println(c.combinaciones(n, k));
-        }
+        int n = 16;
+        int r = 10;
+        
+        System.out.println(combinatoria(n, r));
+        
+        
     }
 }

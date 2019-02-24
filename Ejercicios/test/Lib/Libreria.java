@@ -269,24 +269,25 @@ public class Libreria {
         System.out.println("El cuadrado del número es "+(num*num));
     }
     
-    private static void numeroNumeros(){
-        //Pide números hasta poner un negativo para mostrar el número de números tecleado
+    private static void numeroNumeros(int[] array){
+        //Pide un array de números hasta para mostrar el número de enteros que contiene
         int numerodos = 0;
-        int numerouno = 0;
-        Scanner sc = new Scanner(System.in);
+        int[] numerouno = array;
         // Declaramos condicion 
         do {
-            System.out.print("Escribe un número: ");
-            numerouno = sc.nextInt(); //Pedimos el número
-            numerodos++;        
-        } while(numerouno>0);
-        System.out.println("Has tecleado " + numerodos + " números");
+            for (int i = 0; i < numerouno.length; i++) {
+                if (numerouno[i]>0){
+                    numerodos++;
+                }
+            }        
+        } while(numerodos>numerouno.length);
+        System.out.println("El número de enteros del array es " + numerodos);
     }
     
     private static boolean esPrimo(int numero){
         //Revisa si un numero entero es primo o no.
         //Si es par no es primo
-        int contador = 2;
+        int contador=2;
         boolean primo=true;
         if (numero%2==0){
             primo = false;
@@ -429,6 +430,83 @@ public class Libreria {
             ++cont;
         }while(b>=1);
         return cont;
+    }
+     
+    private static double tuDescuento(double precioAntes, double precioActual){
+        //Muestra y devuelve el descuento aplicado a un producto, dandole 
+        //El precio anterior y el actual
+        double descuento=100-(100*precioActual/precioAntes);
+        System.out.println("El descuento es: "+ descuento +"%");
+        return descuento;
+    }
+    
+    private static double centrigradosAFarenheit(double num){
+        //Devuelve el valor de grados Centigrados por parametro en grados Farenheit
+        double respuesta;
+	respuesta = (1.8)*num+32;
+	return respuesta;
+    }
+    
+    private static double farenheitACentigrados(double num){
+        //Devuelve el valor de grados Farenheit por parametro en grados Centigrados
+        double respuesta;
+	respuesta = (num-32)/1.8;
+	return respuesta;    
+    }
+    
+    private static boolean Descompuesto(int num){
+        //Devuelve true o false si le damos un número de 5 cifras que sea capicua
+        boolean capicua;
+        int decenaMillar, millar, centena, decena, unidad;
+        decenaMillar= num/10000;
+        millar = (num/1000)-(decenaMillar*10);
+        centena = (num/100)-(decenaMillar*100)-(millar*10);
+        decena = (num/10)-(decenaMillar*1000)-(millar*100)-(centena*10);
+        unidad = (num%10);
+        if(millar==decena && decenaMillar == unidad){
+           return capicua=true;
+        }else{
+           return capicua=false;
+        } 
+    }
+    
+    private static int combinatoria(int n, int r){
+        //Veduelve r posibles combinaciones de n, siendo estos dos numeros dados
+        if( r == 0 || r == n){
+            return 1;}
+        if( r > n){
+            return 0;}
+        int a , b;
+        a = combinatoria ( n - 1 , r -1 );
+        b = combinatoria ( n - 1 , r );
+        return a + b;    
+    }
+    
+    private static void esPar(int num){
+        //Indica que un número es par
+        if(num%2==0){
+            System.out.println(num +" es par.");
+        }  
+    }
+    
+    private static void Impares(int num){
+        //Indica que un número es impar
+        if(num%2!=0){
+                System.out.println(num +" es impar.");
+            }
+    }
+    
+    private static void trianguloDeN (int num){
+        //Crea un triangulo de tantas filas como el número dado y compuesto por
+        //números que van desde cero hasta el número dado
+        int aux;
+            for (int i=1;i<=num;i++){
+                aux=i;
+                for (int j=0;j<i;j++){
+                    System.out.print(aux);
+                }
+            System.out.println("");
+        }
     }
     
     
