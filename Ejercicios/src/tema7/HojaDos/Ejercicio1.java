@@ -24,15 +24,13 @@ public class Ejercicio1 {
         array = new double[tamanio];
         double numeroDecimal = 0;
         int indice = 0;
-                do{
-                    numeroDecimal = sc.nextDouble();
-                    if (numeroDecimal != -1){
-                        array[indice] = numeroDecimal;
-                        indice++;
-                    }
-                    
-                
-                }while(numeroDecimal !=-1 && indice < tamanio);
+            do{
+                numeroDecimal = sc.nextDouble();
+                if (numeroDecimal != -1){
+                    array[indice] = numeroDecimal;
+                    indice++;
+                }
+            }while(numeroDecimal !=-1 && indice < tamanio);
         return array;
     }
     

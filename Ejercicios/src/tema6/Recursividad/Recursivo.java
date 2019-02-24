@@ -29,7 +29,7 @@ public class Recursivo {
         }
     }
     
-    //Método recursivo que realiza la suma de hasta n
+    //Método recursivo que realiza la suma de todos los números hasta n
     public static int sumaHastaN (int n){
         if (n==0){
             return 0;

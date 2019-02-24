@@ -44,42 +44,36 @@ public class Ejercicio6 {
            System.out.println("");
     }
     
-    //Comparamos el segundo con el primero, el tercero con el segundo y sucesivamente
+    
     private static void escribeElementosRepetidosArray(String[] array){
-        
+        //Comparamos el segundo con el primero, el tercero con el segundo y sucesivamente
         Arrays.sort(array);
         //Solo funciona si esta ordenado
         for(int i = 1; i < array.length; i++) { // recorremos todo el array
             if(array[i].equals(array[i-1])) { // Comparamos si i es igual a su anterior
                 System.out.println("Se repite el num: " + array[i]); // mostramos en pantalla
             }
-        } 
-        
+        }         
     }
-    
-    //Comparamos el segundo con el primero, el tercero con el segundo y sucesivamente
-    private static void escribeElementosRepetidosArraySinOrden(String[] array){
         
+    private static void escribeElementosRepetidosArraySinOrden(String[] array){
+        //Comparamos el segundo con el primero, el tercero con el segundo y sucesivamente
         for(int i = 0; i < array.length; i++) { // recorremos todo el array
             for (int j = i+1; j < array.length; j++) {
                 if(array[i].equals(array[j])) { // Comparamos si i es igual a su anterior
                     System.out.println("Se repite el num: " + array[i]); // mostramos en pantalla
                 }
             }
-        } 
-        
+        }         
     }
     
     private static String[] llenaArrayCadena(String[] array){
-        
+        //Rellenamos un array de cadenas 
         for (int i = 0; i < array.length; i++) {
-            Random r = new Random();
-            
+            Random r = new Random();            
             array[i] = "Hola"+i+r.nextInt(100);
-        }
-        
-        return array;
-        
+        }        
+        return array;        
     }
     
 }

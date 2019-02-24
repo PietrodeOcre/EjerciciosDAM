@@ -44,9 +44,9 @@ public class Ejercicio3 {
         System.out.println(Arrays.toString(numeros));
         System.out.print(Arrays.toString(maximos));
         
+        StringBuffer stb = new StringBuffer("hola");
         
-        
-        repetidos();
+        repetidos(stb);
         
     }
     
@@ -71,11 +71,8 @@ public class Ejercicio3 {
         return maximo;
     }
     
-    private static void repetidos(){
-        
-        StringBuffer stb = new StringBuffer("hola UDAM");
-        
-        
+    private static void repetidos(StringBuffer stb){
+
         for(int i=0; i<stb.length(); i++){
             if(stb.charAt(i) == 'a' ||
                     stb.charAt(i) == 'e' ||
@@ -91,7 +88,6 @@ public class Ejercicio3 {
                 stb.deleteCharAt(i);
             }
         }
-        
         System.out.println(stb);
     }
 }

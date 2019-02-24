@@ -3,7 +3,7 @@
 Buscar posicion de un elemento recorriendo el vector compleo y medir tiempo
 Ordenar vector y aplicar busqueda binaria al vector midiendo el tiempo.
  */
-package tema7.III;
+package tema7.AlgoritmosDeOrdenacion;
 
 import java.util.Random;
 import java.util.Scanner;

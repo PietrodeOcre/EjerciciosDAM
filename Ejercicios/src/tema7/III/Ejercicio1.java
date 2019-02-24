@@ -34,15 +34,8 @@ public class Ejercicio1 {
     
     private static void profesor(){
         StringTokenizer str = new StringTokenizer("Juan Carlos\n 8.5\n Andrés\n 4.9\nPedro\n 3.8\n Juan\n 6.3" , "\n");
-        
-        
-        
         while (str.hasMoreTokens()){
-            
-            
-            System.out.println("El alumno "+ str.nextToken() + " ha sacado la nota " + str.nextToken());
-            
-            
+            System.out.println("El alumno "+ str.nextToken() + " ha sacado la nota " + str.nextToken());                   
         }
     }
 }

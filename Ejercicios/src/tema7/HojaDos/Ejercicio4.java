@@ -17,7 +17,7 @@ public class Ejercicio4 {
     Este Metodo es el encargado de borrar un elemento del array
     Solo recorre el array hasta que encuentra la posicion 
     que le indicamos, cuando llega a esta, la iguala a cero
-    Además devuelve 0 su la borra y si no devuelve -1.
+    Además devuelve 0 si la borra y si no devuelve -1.
     */
     private static int borrarElemento(int num, int[] array){
         try{

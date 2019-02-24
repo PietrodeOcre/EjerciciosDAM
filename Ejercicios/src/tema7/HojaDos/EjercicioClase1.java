@@ -35,16 +35,21 @@ public class EjercicioClase1 {
         return matriz;
     }
     
-    //Este método muestra nuestra matríz de manera ordenada
     private static void mostrar(int[][] matriz){
+        //Este método muestra nuestra matríz de manera ordenada
         for(int i=0; i<matriz.length; i++){
             for(int j=0; j<matriz[i].length; j++){
                 System.out.print("-> " + matriz[i][j] + " ");
             }
-            System.out.print("\n");
-            
-        } 
-        
+            System.out.print("\n");            
+        }         
     }
+    
+    
+    
+    
+    
+    
+    
     
 }

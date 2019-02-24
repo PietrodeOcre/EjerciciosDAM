@@ -33,23 +33,17 @@ public class Ejercicio7 {
         
     }
     
-    //Comparamos el segundo con el primero, el tercero con el segundo y sucesivamente
+    
     private static String[] escribeElementosRepetidosArraySinOrden(String[] array){
-        
-        //int cont=0;
-        String[] cad = new String[array.length];
-        
+        //Comparamos el segundo con el primero, el tercero con el segundo y sucesivamente
+        String[] cad = new String[array.length];        
         for(int i = 0; i < array.length; i++) { // recorremos todo el array
             for (int j = i+1; j < array.length; j++) {
                 if(array[i].equals(array[j])) { // Comparamos si i es igual a su anterior
-                    cad[i] = array[i];
-                    //cont++;
-                    //System.out.println("Se repite el num: " + array[i]); // mostramos en pantalla
+                    cad[i] = array[i];                    
                 }
             }
         } 
-        return cad;
-        
-    }
-    
+        return cad;        
+    }    
 }

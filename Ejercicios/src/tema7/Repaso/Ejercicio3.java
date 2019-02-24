@@ -15,16 +15,13 @@ import java.util.Arrays;
 public class Ejercicio3 {
     
     private static boolean insertaElementoArray(String [] array, String elemento, int posicion){
-        
-        
+        //Devuelve true si consigue añadir elemento al array y false si está la posicion ocupada
         if(posicion<array.length){
             if (array[posicion] == null){
                 Arrays.fill(array, posicion, posicion+1, elemento);
-                //array[posicion-1]=elemento;
                 return true;
             }
-        }
-        
+        }        
         return false;
     }
     
