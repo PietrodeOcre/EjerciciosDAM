@@ -8,7 +8,7 @@ package Lib;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
-import java.util.concurrent.ThreadLocalRandom;
+
 
 
 
@@ -1082,6 +1082,24 @@ public class Libreria {
         return cad;        
     }   
     
+    private int compareTo(Object obj){
+        //Método que devuelve un array comparando sus elementos y ordenado
+        int Object = 0;
+        //return this.id-obj.id;
+        //Ordena crecientemente
+        //return -this.id-obj.id;
+        //Ordena decrecientemente
+        return Object;
+    }
     
+    public int comparteTo(Object obj){
+        int Object = 0;
+        //Método que devuelve un array comparando sus elementos y ordenado
+        //return this.nombre.compareTo(obj.getNombre());
+        //Por orden alfabetico creciente
+        //return -this.nombre.compareTo(obj.getNombre());
+        //Por orden alfabetico decreciente
+        return Object;
+    }
     
 }

@@ -27,7 +27,7 @@ public class Pablo {
     }
     
     private static int[] prueba(int[] num){
-        
+        //Copiar un array sin la clase Arrays
         
         int[] num2 = new int[num.length];
         int cont=0;

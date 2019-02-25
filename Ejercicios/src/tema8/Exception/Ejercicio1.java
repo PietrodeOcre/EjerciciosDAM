@@ -67,4 +67,6 @@ public class Ejercicio1 {
         throw new ArrayIndexOutOfBoundsException("11");
     }
     
+     
+    
 }

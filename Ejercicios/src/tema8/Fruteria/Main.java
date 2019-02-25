@@ -32,10 +32,30 @@ atributos) y llama al método del apartado b.
  */
 package tema8.Fruteria;
 
+import java.util.Arrays;
+
 /**
  *
  * @author pietrodeocre
  */
 public class Main {
     
+    
+    public static void main(String[] args) {
+        
+        Naranja[] naranja = {new Naranja("naranja","naranja", "grande"),
+        new Naranja("naranja2","naranja", "grande"),
+        new Naranja("naranja3","naranja", "grande")
+        };
+        Platano[] platano = {new Platano("Platano1","grande"),
+        new Platano("Platano2","grande"),
+        new Platano("Platano3","grande")};
+        Tomate[] tomate = {new Tomate("tomate1", "Rojo", "robusta"),
+        new Tomate("tomate2", "Rojo", "robusta"),
+                new Tomate("tomate3", "Rojo", "robusta")};
+        
+        Fruteria fruteria = new Fruteria(tomate, naranja, platano);
+        
+        fruteria.imprimeFrutas();
+    }
 }
