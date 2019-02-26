@@ -1102,4 +1102,174 @@ public class Libreria {
         return Object;
     }
     
+    private static boolean diagonal(int [][]matriz){
+        //Devuelve true si la matriz es diagonal, es decir
+        //son todo ceros menos la linea diagonal
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz.length; j++) {
+                if(i!=j){
+                    if(matriz[i][j]!=0){
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+    
+    private static boolean triangularBajo(int [][]matriz){
+        //Devuelve true su la matriz tiene a cero las posiciones por encima de la diagonal
+        if(matriz.length == matriz[0].length){
+            for (int i = 0; i < matriz.length; i++) {
+                for (int j = 0; j < matriz.length; j++) {
+                    if(i<j){
+                        if(matriz[i][j]!=0){
+                            return false;
+                        }
+                    }
+                }
+            }
+            return true;
+        }
+        return false;
+    }
+    
+    private static boolean simetricMatriz(int[][] matriz){
+        //devuelve true si la matriz es simetrica
+        boolean esSimetrica = false;
+        if (matriz.length == matriz[0].length){
+            for (int i = 0; i < matriz.length; i++) {
+                for (int j = 0; j < matriz[0].length; j++) {
+                    if ( matriz[i][j] != matriz[j][i]){
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+        return esSimetrica;
+    }
+    
+    public static void lideres(int[] array) {
+        //Muestra lso números del array que despues de ellos
+        //No tienen ninguno mayor que ellos mismos.
+        boolean esta= false;
+        for (int i = 0; i < array.length-1; i++) {
+            esta=true;
+            for (int j = i+1; j < array.length; j++) {
+                if(array[i]<=array[j]){
+                    esta = false;
+                }
+            }
+            if(esta){
+            System.out.println(array[i]+ " es lider");
+            } 
+        }   
+    }
+    
+    private static void segregaVector(int[] array, int posicion){
+        //Pone todas las posiciones antes del número dado a cero
+        //Pone todas las posiciones despues del número dado a 1
+        //deja la posicion indicada por el número con su valor original
+        for (int i = 0; i < array.length; i++) {
+            if(i < posicion){
+                array[i] = 0;
+            }else if(i==posicion){
+                array[i]=array[i];
+            }else if(i>posicion){
+                array[i]=1;
+            }
+            System.out.println(array[i]);
+        }
+    }
+    
+    private static int[] separeElementos(int[] n){
+        //devuelve el array dado ordenando los pares primero y los impares depsues
+        int[] par = new int[n.length];
+        int[] impar = new int[n.length];
+        int i;
+        int pares = 0;
+        int impares = 0;   
+        for (i = 0; i < n.length; i++) {
+            // Separa los números metiendo los pares en un array
+            // y los impares en otro.
+            if (n[i] % 2 == 0) {
+                par[pares++] = n[i];
+            } else {
+                impar[impares++] = n[i];
+            }
+        }       
+        // Mete los pares en las primeras posiciones
+        // del array original.
+        for (i = 0; i < pares; i++) {
+            n[i] = par[i];
+        }   
+        // Mete los impares en los huecos que quedan.
+        for (i = pares; i < n.length; i++) {
+            n[i] = impar[i - pares];
+        }
+        // Muestra el resultado.
+        System.out.println("Array con los pares al principio:");
+        for (i = 0; i < n.length; i++) {
+            System.out.print(n[i] + " ");
+        }        
+        return n;
+    }
+    
+    private static int[] reemplazaMayor(int[] array){
+        //Reemplaza todas las posiciones menos la primera por el número mayor del array
+        int j;
+        int f = 0;
+        for (int i = 1; i<array.length; i++){
+            int a= array[i];
+            for(j=i-1; j>0 && array[j]>a; j--){
+                array[j+1] = array[j];
+                f=array[j];
+            }
+            array[j+1]=a;
+        }
+        //System.out.println(f);
+        for (int i = 1; i < array.length; i++) {
+            array[i] = f;
+        }
+        return array;
+    }
+    
+    private static int mediaEnterosMenosMayorYMenor (int[]array){
+        //Devuelve la media de un array sin contar el primer puesto y el ultimo
+        int media = 0;
+        int resp;
+        int j;
+        for (int i = 1; i<array.length; i++){
+            int a= array[i];
+            for(j=i-1; j>0 && array[j]>a; j--){
+                array[j+1] = array[j];
+                   
+            }
+            array[j+1]=a;
+        }
+        for (int i = 1; i < array.length-1; i++) {
+            media = media + array[i];
+            //System.out.println(media);
+        }
+        resp = media/((array.length)-2);
+        return resp;
+    }
+    
+    private static void masPequeMasGrande(int[] array){
+        //Muestra el mas pequeño y mas grande del array dado por parametro
+        int grande=0;
+        int peque=0;
+        int j;
+        for (int i = 1; i<array.length; i++){
+            int a= array[i];
+            for(j=i-1; j>0 && array[j]>a; j--){
+                array[j+1] = array[j];
+                grande = array[j];   
+            }
+            array[j+1]=a;
+        }
+        peque = array[0];
+        System.out.println("El más pequeño es " + peque + " y el más grande es " + grande);
+    }
 }

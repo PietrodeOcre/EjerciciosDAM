@@ -10,7 +10,7 @@ package tema7.Repaso2;
  * @author pietrodeocre
  */
 public class Ejercicio3 {
-    private static boolean triangularBajo(int [][]matriz){
+    private static boolean diagonal(int [][]matriz){
             for (int i = 0; i < matriz.length; i++) {
                 for (int j = 0; j < matriz.length; j++) {
                     if(i!=j){
@@ -25,8 +25,8 @@ public class Ejercicio3 {
     }
     
     public static void main(String[] args) {
-        int matriz[][] = {{1,0,0,},{0,1,0},{0,0,1}};
+        int matriz[][] = {{1,0,0,},{0,1,0},{1,0,1}};
         
-        System.out.println(triangularBajo(matriz));
+        System.out.println(diagonal(matriz));
     }
 }

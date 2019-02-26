@@ -11,7 +11,7 @@ package tema7.Repaso2;
  */
 public class Ejercicio6 {
     
-    private static void soloEsaPosicion(int[] array, int posicion){
+    private static void segregaVector(int[] array, int posicion){
         
         for (int i = 0; i < array.length; i++) {
             
@@ -29,7 +29,7 @@ public class Ejercicio6 {
     public static void main(String[] args) {
         int[] array = {1,2,3,4,5,6};
         
-        soloEsaPosicion(array, 3);
+        segregaVector(array, 3);
         
     }
     
