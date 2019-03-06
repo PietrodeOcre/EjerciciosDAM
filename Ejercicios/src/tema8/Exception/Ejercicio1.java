@@ -1,14 +1,16 @@
 /*
-Crear vector 10 posiciones. Se accede a la posición 11 del vector.
--Creamos un try/catch para capturar la exception-> ArrayIndexOutBoundsException
--Se imprime por pantalla la captura de la exception.
--Usaremos e.getMessage() para imprimirla o e.printStackTrace() o un e.toString()
--Tambien crearemos un método que llamará desde el main a la posición 11 del vector 
--El método anterior elevará la exception y el main lo capturará.
--Crear un método2 que lanzará una exception del mismo tipo pero se lanzará manualmente
--El main tambien capturará la exception que hemos lanzado manualmente.
+Implemente un programa que lea un número ‘a’ y otro número ‘b’ y luego 
+calcule “a/b”. Pruebe a introducir b=0 y ver que hace el programa con la 
+división por cero. Pruebe a introducir b=”Carlos” para ver como se comporta 
+el programa. Añada excepciones para recoger estas excepciones y avisar del 
+problema al usuario, imprimiendo la información mediante getMessage y 
+printStackTrace. Incluya un bucle que vuelva a pedir los datos ‘a’ y ‘b’ al 
+usuario hasta que introduzca dos datos válidos.
  */
 package tema8.Exception;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /**
  *
@@ -16,57 +18,66 @@ package tema8.Exception;
  */
 public class Ejercicio1 {
     
+    private static void divide (int a, int b){
+       
+            System.out.println(a/b);
+       
+    }
     
-    public static void main(String[] args) {
-        
-        int[] numero = new int[10];
-        for (int i = 0; i < 9; i++) {
-            numero[i] = i;
+    private static int[] pideNum (int[] num){
+        try{
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Escribe el primero número: ");
+            num[0] = sc.nextInt();
+            System.out.println("Escribe el segundo número: ");
+            num[1] = sc.nextInt();
+        }catch(InputMismatchException excepcion){
+            System.out.println(" No se admiten letras. " + excepcion.getMessage());
         }
-             
-        //Este Try entra en la posicion 11 del array, que como no existe salta el exception
-        /*try{
-            int per = numero[11];
-        }catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println(e);
-            //e.toString();
-        } */
+        return num;
+    }
+    
+    public static void main(String[] args) throws InputMismatchException{
         
+        Scanner sc = new Scanner(System.in);
+        int a,b = 0;
         
-        //Este Try ejecuta un método que entra en la posicion 11 del array, 
-        //que como no existe salta el exception
-        //el método manda la exception elevada al main que es capturada por este try
         /*try{
-            hacerException(numero);
-        }catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println(e);
+            divide(3,0);
+        }catch (ArithmeticException e){
+            System.out.println(e.getMessage());
+            
+            e.printStackTrace();
+        }
+        
+        //divide(3,"carlos");
+        
+        try{
+            //divide(3,"carlos");
+        }catch (RuntimeException e){
+            System.out.println(e.getMessage());
+            
+            e.printStackTrace();
         }*/
         
         
-        //Este Try ejecuta un método que activa una exception manualmente, 
-        //simulando al exception anterior.
-        //el método manda la exception elevada al main que es capturada por este try
-        try{
-            hacerException2();
-        }catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println(e);
-        }
+         int[] num = new int[2];
+            while (num[1] == 0){
+                
+            
+                try{
+                    pideNum(num);
+                    divide(num[0],num[1]);
+                    
+                }catch(ArithmeticException excepcion){    
+                    System.out.println(" Error de división por cero. " + excepcion.getMessage());
+                }
+            }
+        
         
         
     }
-    
-    //Este método eleva la exception al main con el throws
-    private static void hacerException(int[] array) throws ArrayIndexOutOfBoundsException{
         
-        int per = array[11];
-
-    }
-    
-    //Este método eleva la excaption simulada con el throw new
-    private static void hacerException2() throws ArrayIndexOutOfBoundsException{
-        throw new ArrayIndexOutOfBoundsException("11");
-    }
-    
-     
+   
     
 }

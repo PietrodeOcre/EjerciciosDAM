@@ -5,6 +5,8 @@
  */
 package tema7.Repaso2;
 
+import java.util.Arrays;
+
 /**
  *
  * @author pietrodeocre
@@ -26,7 +28,9 @@ public class Ejercicio3 {
     
     public static void main(String[] args) {
         int matriz[][] = {{1,0,0,},{0,1,0},{1,0,1}};
-        
+        //System.out.println(Arrays.toString(matriz));
         System.out.println(diagonal(matriz));
+        //System.out.println(Arrays.toString(matriz));
+        
     }
 }
